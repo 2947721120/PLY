@@ -1,5 +1,5 @@
 # Ply
-Amazing layer/modal/dialog system. Wow!
+惊人的层/模式/对话系统。 哇！
 
 
 ## Features
@@ -13,14 +13,14 @@ Amazing layer/modal/dialog system. Wow!
 
 
 
-## Base usage
+## 基本用法
 
 Include [ply.css](ply.css) in `<head/>` (optional)
 ```html
 <link href="./ply.css" rel="stylesheet" type="text/css"/>
 ```
 
-Create a dialog:
+创建一个对话框：
 ```js
 Ply.dialog("alert", "Wow!").always(function (ui) {
 	ui.state; // true — "OK", false — "cancel"
@@ -28,7 +28,7 @@ Ply.dialog("alert", "Wow!").always(function (ui) {
 	ui.widget; // Ply instance
 });
 
-//or
+//或
 Ply.dialog("confirm", "Do you like it?")
 	.done(function (ui) {
 		// OK
@@ -66,7 +66,7 @@ Ply.dialog({
 		ui: "confirm",
 		data: {
 			text: "What's next?",
-			ok: "Exit",     // button text
+			ok: "Exit",     //确认按钮
 			cancel: "Back"
 		},
 		back: "init-state",
@@ -76,7 +76,7 @@ Ply.dialog({
 	if (ui.state) {
 		// OK
 	} else {
-		// Cancel
+		//取消
 		// ui.by — 'overlay', 'x', 'esc'
 	}
 })
@@ -87,15 +87,15 @@ Ply.dialog({
 ---
 
 
-## Low-level
+## 低级别
 
 ##### new Ply(el[, options])
- * el:`String|HTMLElement` — content of layer
- * options:`Object` — layer options
+ * el:`String|HTMLElement` —层的内容
+ * options:`Object` —图层选项
 
 
 ##### new Ply(options)
- * options:`Object` — layer options
+ * options:`Object` — 图层选项
 
 
 ```js
@@ -120,7 +120,7 @@ var ply = new Ply({
 		visibleOverlayInStack: false // visibility overlay, if the layer is not the first in the stack
 	},
 
-	// Callback
+	// 回调
 	oninit: function (ply) {},
 	onopen: function (ply) {},
 	onclose: function (ply) {},
@@ -129,7 +129,7 @@ var ply = new Ply({
 });
 
 
-// And
+// 和
 ply.open().always(function () {
 	ply.swap({ el: ".." }, "3d-flip").always(function () {
 		ply.close();
@@ -153,7 +153,7 @@ Destroy layer
 ---
 
 
-## Preset effects
+## 预置效果
  - fade
  - scale
  - fall
@@ -163,13 +163,13 @@ Destroy layer
 
 
 
-### Combined effects
+###综合效应
 ```js
 Ply.dialog("alert", { effect: ["fade", "scale"] }, "Fade & scale");
 ```
 
 
-### Custom effects
+### 自定义效果
 ```js
 Ply.effects["my-effect"] = {
 	open:  { layer: "fade-in", overlay: "background-in" },
